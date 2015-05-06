@@ -16,7 +16,7 @@ if ( ! function_exists ('sqlite_escape_string') ) {
 	require_once ( MAYALIB_DIR . 'sqlite_escape_string.inc.php' ) ;
 }
 
-
+require_once ( MAYALIB_DIR . 'hashpw.inc.php' ) ;
 
 
 ?>
