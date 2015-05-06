@@ -1,16 +1,17 @@
-CREATE TABLE user_id ( 
+CREATE TABLE user ( 
 user_id INTEGER PRIMARY KEY AUTOINCREMENT, 
-user_name TEXT 
+user_name TEXT UNIQUE, 
+screen_name TEXT 
 ) ;
 
 CREATE TABLE user_pw ( 
-user_id INTEGER PRIMARY KEY AUTOINCREMENT, 
+user_id INTEGER PRIMARY KEY, 
 user_pw_h TEXT 
 ) ;
 
 CREATE TABLE user_level ( 
-user_id INTEGER PRIMARY KEY AUTOINCREMENT, 
-authority_level INTEGER　
+user_id INTEGER PRIMARY KEY, 
+authority_level INTEGER DEFAULT 1 
 ) ;
 
 CREATE TABLE authority_level ( 
