@@ -79,7 +79,14 @@ dt_utc, balance ) VALUES (
 
 CREATE TRIGGER insert_payment_t 
 INSERT ON payment_history 
-BEGIN 
+WHEN ( 
+	( SELECT SUM (ammount) FROM receive_history 
+	WHERE dt_utc <= DATETIME ('now') ) 
+	>= 
+	( SELECT SUM (ammount) FROM payment_history 
+	WHERE dt_utc <= DATETIME ('now') ) 
+) 
+BEGIN
 	INSERT INTO balance_history (balance) 
 	VALUES ( 
 	( SELECT SUM (ammount) FROM receive_history 
@@ -92,7 +99,14 @@ END ;
 
 CREATE TRIGGER insert_receive_t 
 INSERT ON receive_history 
-BEGIN 
+WHEN ( 
+	( SELECT SUM (ammount) FROM receive_history 
+	WHERE dt_utc <= DATETIME ('now') ) 
+	>= 
+	( SELECT SUM (ammount) FROM payment_history 
+	WHERE dt_utc <= DATETIME ('now') ) 
+) 
+BEGIN
 	INSERT INTO balance_history (balance) 
 	VALUES ( 
 	( SELECT SUM (ammount) FROM receive_history 
