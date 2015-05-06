@@ -1,6 +1,17 @@
 <?php
-	// スクリプト設置ディレクトリ
-	define ( 'SCRIPT_DIR', "./" ) ;
+// スクリプト設置ディレクトリ
+define ( 'SCRIPT_DIR', "./" ) ;
 
+// ページタイトルを設定
+define ('PAGE_TITLE', "My Page") ;
+
+// URL
+define ('SITE_URL', "http://localhost/cashbook") ;
+
+// パスワードハッシュ化回数
+define ('PW_HASH_COUNT', 11) ;
+
+// ログイン状態保持日数
+define ('LOGIN_SAVE_DATE', 3) ;
 
 ?>
