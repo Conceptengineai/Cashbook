@@ -57,11 +57,6 @@ id INTEGER PRIMARY KEY,
 note TEXT 
 ) ;
 
-CREATE TABLE balance_history ( 
-dt_utc TIMESTAMP DEFAULT CURRENT_TIMESTAMP, 
-balance INTEGER 
-) ;
-
 INSERT INTO payment_history ( 
 dt_utc, ammount ) VALUES ( 
 '1900-01-01 00:00:00', 0 
@@ -72,47 +67,3 @@ dt_utc, ammount ) VALUES (
 '1900-01-01 00:00:00', 0 
 ) ;
 
-INSERT INTO balance_history ( 
-dt_utc, balance ) VALUES ( 
-'1900-01-01 00:00:00', 0 
-) ;
-
-CREATE TRIGGER insert_payment_t 
-INSERT ON payment_history 
-WHEN ( 
-	( SELECT SUM (ammount) FROM receive_history 
-	WHERE dt_utc <= DATETIME ('now') ) 
-	>= 
-	( SELECT SUM (ammount) FROM payment_history 
-	WHERE dt_utc <= DATETIME ('now') ) 
-) 
-BEGIN
-	INSERT INTO balance_history (balance) 
-	VALUES ( 
-	( SELECT SUM (ammount) FROM receive_history 
-	WHERE dt_utc <= DATETIME ('now') ) 
-	- 
-	( SELECT SUM (ammount) FROM payment_history 
-	WHERE dt_utc <= DATETIME ('now') ) 
-	) ;
-END ;
-
-CREATE TRIGGER insert_receive_t 
-INSERT ON receive_history 
-WHEN ( 
-	( SELECT SUM (ammount) FROM receive_history 
-	WHERE dt_utc <= DATETIME ('now') ) 
-	>= 
-	( SELECT SUM (ammount) FROM payment_history 
-	WHERE dt_utc <= DATETIME ('now') ) 
-) 
-BEGIN
-	INSERT INTO balance_history (balance) 
-	VALUES ( 
-	( SELECT SUM (ammount) FROM receive_history 
-	WHERE dt_utc <= DATETIME ('now') ) 
-	- 
-	( SELECT SUM (ammount) FROM payment_history 
-	WHERE dt_utc <= DATETIME ('now') ) 
-	) ;
-END ;
