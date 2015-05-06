@@ -65,8 +65,9 @@ define ( 'HTML_INC_DIR' , SCRIPT_DIR . "include/html/" ) ;
 define ( 'HTML_HEADER_FILE' , HTML_INC_DIR . "html_header.inc.php" ) ;
 define ( 'HTML_FOOTER_FILE' , HTML_INC_DIR . "html_footer.inc.php" ) ;
 define ( 'HTML_TOP_MENU_FILE' , HTML_INC_DIR . "html_top_menu.inc.php" ) ;
-
-
+define ( 'HTML_LOGINFORM_FILE' , HTML_INC_DIR . "html_loginForm.inc.php" ) ;
+define ( 'HTML_USERFORM_FILE' , HTML_INC_DIR . 'html_userForm.inc.php' ) ;
+define ( 'HTML_MESSAGE_FILE' , HTML_INC_DIR . "html_messageContainer.inc.php" ) ;
 //define ( 'HTML_MAINFORM_FILE' , HTML_INC_DIR . "html_mainform.inc.php" ) ;
 //define ( 'HTML_SENDFORM_FILE' , HTML_INC_DIR . "html_sendForm.inc.php" ) ;
 //define ( 'HTML_SEARCHFORM_FILE' , HTML_INC_DIR . "html_searchForm.inc.php" ) ;
