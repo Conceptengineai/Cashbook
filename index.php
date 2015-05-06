@@ -1,15 +1,19 @@
 <?php
 
-	if ($_GET) {
+require_once ('config.php') ;
 
-		if ($array_get_value ($_GET, 'mode', "") ) {
 
-			$match_array = null ;
+if ($_GET) {
+
+	if ($array_get_value ($_GET, 'mode', "") ) {
+
+		$match_array = null ;
 
 			
 
-		}
-
 	}
+
+}
+
 
 ?>
