@@ -11,8 +11,7 @@ function login ($user_name, $pw) {
 		'FROM user INNER JOIN user_pw ' . 
 		'ON user.user_id = user_pw.user_id ' . 
 		'WHERE user_name = ' . "'" . 
-		sqlite_escape_string ($user_name) . 
-		"' ;" ; 
+		$user_name . "' ;" ; 
 
 // for debug
 //return $query ;
