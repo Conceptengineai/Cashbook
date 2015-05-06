@@ -58,6 +58,12 @@ id INTEGER PRIMARY KEY,
 note TEXT 
 ) ;
 
+CREATE TABLE error_log ( 
+dt_utc TIMESTAMP DEFAULT CURRENT_TIMESTAMP, 
+err_level INTEGER, 
+err_message TEXT 
+) ;
+
 INSERT INTO payment_history ( 
 dt_utc, ammount ) VALUES ( 
 '1900-01-01 00:00:00', 0 
