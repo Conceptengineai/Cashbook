@@ -32,8 +32,8 @@ if ( ! defined ('SITE_URL') ) {
 	define ('SITE_URL', "http://localhost/cashbook") ;
 }
 
-if ( ! defined ('PW_HASH_COUNT') ) {
-	define ('PW_HASH_COUNT', 11) ;
+if ( ! defined ('PW_HASH_COST') ) {
+	define ('PW_HASH_COST', '12') ;
 }
 
 if ( ! defined ('LOGIN_SAVE_DATE') ) {

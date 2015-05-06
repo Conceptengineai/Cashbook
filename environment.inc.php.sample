@@ -8,8 +8,8 @@ define ('PAGE_TITLE', "My Page") ;
 // URL
 define ('SITE_URL', "http://localhost/cashbook") ;
 
-// パスワードハッシュ化回数
-define ('PW_HASH_COUNT', 11) ;
+// パスワードハッシュ化コスト。 PHP のデフォルトは 10
+define ('PW_HASH_COST', 11) ;
 
 // ログイン状態保持日数
 define ('LOGIN_SAVE_DATE', 3) ;
