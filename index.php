@@ -2,7 +2,8 @@
 
 require_once ('config.php') ;
 
-session_start () ;
+// ログイン後経過日数によって強制ログアウト判断処理追加部
+
 
 if ($_GET) {
 

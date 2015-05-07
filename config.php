@@ -6,7 +6,7 @@
 // last mod. : 2015.05.06
 
 
-
+session_start () ;
 
 // デフォルトのタイムゾーンを設定します。PHP 5.1 以降で使用可能です
 date_default_timezone_set ( 'Asia/Tokyo' ) ;
