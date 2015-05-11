@@ -1,6 +1,6 @@
 	<div id="userFormContainer">
 		<ul>
-			<li>logined&nbsp;:&nbsp;<span><?php if 
+			<li>login&nbsp;:&nbsp;<span><?php if 
 				( array_get_value ($_SESSION, 
 				'screen_name', "") ) { 
 					echo $_SESSION ['screen_name'] ;

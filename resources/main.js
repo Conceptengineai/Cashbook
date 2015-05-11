@@ -1,11 +1,11 @@
-$("#loginForm").submit (function(event) {
+function loginForm_submit(event) {
 
 	// submit をキャンセル
 	event.preventDefault () ;
 
 	// Ajax 処理
 	$.ajax ( {
-		url: 'http://localhost/cashbook/login.php', 
+		url: 'http://localhost/cashbook/login_js.php', 
 		type: 'POST', 
 		dataType: 'json', 
 		data: {user_name: $('#user_name_text').val(), 
@@ -18,14 +18,17 @@ $("#loginForm").submit (function(event) {
 			alert ("NG") ; 
 		}
 	}) ;
-}) ;
+}
 
 function logout() {
 
 	var ans = confirm ('ログアウトしますか？') ;
 	if (ans == true) {
 		$.get ('http://localhost/cashbook/session_destroy.php', function (data) {
-			alert ('a:' + data) ;
+			if (data == true) {
+				alert ('ログアウトしました。') ;
+				location.reload () ;
+			}
 		}) ;
 	}
 }
