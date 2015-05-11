@@ -24,7 +24,7 @@ function logout() {
 
 	var ans = confirm ('ログアウトしますか？') ;
 	if (ans == true) {
-		$.get ('http://localhost/cashbook/session_destroy.php', function (data) {
+		$.get ('http://localhost/cashbook/logout_js.php', function (data) {
 			if (data == true) {
 				alert ('ログアウトしました。') ;
 				location.reload () ;
