@@ -9,6 +9,12 @@ user_id INTEGER PRIMARY KEY,
 user_pw_h TEXT 
 ) ;
 
+CREATE TABLE login_history ( 
+id INTEGER PRIMARY KEY AUTOINCREMENT, 
+user_id INTEGER, 
+dt_utc TIMESTAMP DEFAULT CURRENT_TIMESTAMP 
+) ;
+
 CREATE TABLE user_level ( 
 user_id INTEGER PRIMARY KEY, 
 authority_level INTEGER DEFAULT 1 
@@ -74,3 +80,7 @@ dt_utc, ammount ) VALUES (
 '1900-01-01 00:00:00', 0 
 ) ;
 
+INSERT INTO login_history ( 
+dt_utc, user_id ) VALUES ( 
+'1900-01-01 00:00:00', 1 
+) ;

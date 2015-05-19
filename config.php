@@ -12,7 +12,7 @@ session_start () ;
 date_default_timezone_set ( 'Asia/Tokyo' ) ;
 
 
-// 環境設定ファイルからスクリプト設置ディレクトリの設定を読み込む
+// 環境設定ファイルから環境設定を読み込む
 if ( is_readable ('environment.inc.php') ) {
 	include ('environment.inc.php') ;
 }

@@ -26,6 +26,31 @@ function login ($user_name, $pw) {
 		if (password_verify ($pw, $db_pw_h) ) {
 
 
+			if ( ! defined ('DONOT_WRITE_LOGIN_HISTORY') ) {
+
+				$query = 'INSERT INTO login_history ' . 
+					'(user_id) SELECT user_id ' . 
+					'FROM user WHERE user_name = ' . "'" . 
+					$user_name . "' ;" ;
+
+// for debug
+//return $query ;
+
+				$insert_res = 
+					$db -> exec ($query) ;
+
+				// このやり方では DB に書き込めない場合に apache (php)
+				// 側でエラーを画面出力して終了してしまう
+				if ( ! $insert_res ) {
+					error_log_writer ( 1, 
+					'login_history error, ' . 
+					sqlite_escape_string ( 
+					$db -> lastErrorMsg ()
+					) ) ;
+				}
+
+			}
+
 			$query = 'SELECT screen_name FROM ' . 
 				"user WHERE user_name = '" . 
 				$user_name . "' ;" ;

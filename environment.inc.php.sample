@@ -14,4 +14,7 @@ define ('PW_HASH_COST', 11) ;
 // ログイン状態保持日数
 define ('LOGIN_SAVE_DATE', 3) ;
 
+// コメントアウト解除でログイン履歴を記録しない
+// define ('DONOT_WRITE_LOGIN_HISTORY', 1) ;
+
 ?>
