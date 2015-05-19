@@ -27,22 +27,14 @@ function login ($user_name, $pw) {
 		if (password_verify ($pw, $db_pw_h) ) {
 
 
-		// Check login authority level.
-		$query = 'SELECT authority_level FROM ( ' . 
-			'SELECT authority_level, user_name FROM ' . 
-			'user_level INNER JOIN user ON ' . 
-			'user_level.user_id = user.user_id ) ' . 
-			'WHERE user_name = ' . "'" . 
-			$user_name . "' ;" ;
+			// Check login authority level.
+			$user_lv = get_user_level ($user_name) ;
 
-// SELECT authority_level FROM ( SELECT authority_level, user_name FROM user_level INNER JOIN user ON user_level.user_id = user.user_id ) WHERE user_name = 'test_r' ;
+			// 9 = reject
+			if ($user_lv == 9) {
 
-// for debug
-//return $query ;
-
-			$user_lv = $db -> querySingle ($query) ;
-
-
+				return 9;
+			}
 
 
 			if ( ! defined ('DONOT_WRITE_LOGIN_HISTORY') ) {

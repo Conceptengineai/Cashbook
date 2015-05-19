@@ -1,7 +1,7 @@
 <?php
 // written by maya minatsuki
 // made this file : 2013.04.11
-// last mod. : 2015.05.04
+// last mod. : 2015.05.19
 //
 
 
@@ -19,5 +19,7 @@ if ( ! function_exists ('sqlite_escape_string') ) {
 require_once ( MAYALIB_DIR . 'hashpw.inc.php' ) ;
 
 require_once ( MAYALIB_DIR . 'login.inc.php' ) ;
+
+require_once ( MAYALIB_DIR . 'get_user_level.inc.php' ) ;
 
 ?>
