@@ -7,6 +7,7 @@ function login ($user_name, $pw) {
 // for debug
 //$user_name = 'boo' ;
 
+	// Get user pw hash
 	$query = 'SELECT user_pw_h ' . 
 		'FROM user INNER JOIN user_pw ' . 
 		'ON user.user_id = user_pw.user_id ' . 
@@ -24,6 +25,16 @@ function login ($user_name, $pw) {
 	if ($db_pw_h) {
 
 		if (password_verify ($pw, $db_pw_h) ) {
+
+
+			// Check login authority level.
+			$user_lv = get_user_level ($user_name) ;
+
+			// 9 = reject
+			if ($user_lv == 9) {
+
+				return 9;
+			}
 
 
 			if ( ! defined ('DONOT_WRITE_LOGIN_HISTORY') ) {
